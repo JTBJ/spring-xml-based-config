@@ -43,8 +43,13 @@ public class App {
 
         //call method of dependency (property injection via container)
         System.out.println("***** property injection via container *****");
-        System.out.println("Email: " + ((CricketCoach)cCoach_v2).getEmailAddress()); //cast ex
         System.out.println("Team: " + cCoach.getTeam());
+        System.out.println();
+
+        //call method of dependency (property injection via properties file)
+        System.out.println("***** property injection via properties file *****");
+        System.out.println("Email: " + ((CricketCoach)cCoach_v2).getEmailAddress()); //cast ex
+
         System.out.println();
 
         //close context
