@@ -23,12 +23,22 @@
           class="com.spring.xml_based_config.dependencyImpl.HappyFortuneServiceImpl">
     </bean>
 
+    <!-- BEAN SCOPE -->
+    <!--
+         SINGLETON - creates a single shared instance of the bean. Default scope
+         PROTOTYPE - creates a new bean instance for each container request
+         REQUEST - scoped to an http web request. Only used for web apps.
+         SESSION - scoped to an http web session. Only used for web apps.
+         GLOBAL-SESSION - scoped to a glabal http web session. Only used for web apps.
+    -->
+
     <!-- Constructor injection -->
-    <bean id="bbCoach" class="com.spring.xml_based_config.coachImpl.BaseballCoach">
+    <bean id="bbCoach" class="com.spring.xml_based_config.coachImpl.BaseballCoach" scope="prototype" init-method="init">
         <constructor-arg ref="fortuneService" />
     </bean>
 
-    <bean id="tCoach" class="com.spring.xml_based_config.coachImpl.TrackCoach">
+    <!-- LIFECYCLE METHODS init-method & destroy-method -->
+    <bean id="tCoach" class="com.spring.xml_based_config.coachImpl.TrackCoach" init-method="init" destroy-method="destroy">
         <constructor-arg ref="fortuneService" />
     </bean>
 
@@ -42,4 +52,7 @@
         <!-- injecting property values from property file -->
         <property name="team" value="${coach.cricket.team}" />
     </bean>
+
+    <!-- post processor to call lifecycle call back destroy(); for prototype bean -->
+    <bean id="customBeanPostProcessor" class="com.spring.xml_based_config.bean_post_processor.CustomBeanPostProcessor" />
 </beans>

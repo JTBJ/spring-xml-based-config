@@ -18,6 +18,12 @@ public class App {
         Coach bbCoach = context.getBean("bbCoach", Coach.class);
         Coach tCoach = context.getBean("tCoach", Coach.class);
 
+        //demonstration of prototype scope
+        Coach bbCoach_v2 = context.getBean("bbCoach", Coach.class);
+
+        //demonstration of singleton scope
+        Coach tCoach_v2 = context.getBean("tCoach", Coach.class);
+
         //didn't code to interface--compiler couldn't see custom method in class
         CricketCoach cCoach = context.getBean("cCoach", CricketCoach.class);
         //coded to interface--casting ex to expose class methods
@@ -49,7 +55,18 @@ public class App {
         //call method of dependency (property injection via properties file)
         System.out.println("***** property injection via properties file *****");
         System.out.println("Email: " + ((CricketCoach)cCoach_v2).getEmailAddress()); //cast ex
+        System.out.println();
 
+        //demonstration of PROTOTYPE scope
+        System.out.println("***** prototype bean example  *****");
+        System.out.println("References same object " + (bbCoach == bbCoach_v2));
+        System.out.println(bbCoach + "\n" + bbCoach_v2);
+        System.out.println();
+
+        //demonstration of SINGLETON scope
+        System.out.println("***** singleton bean example  *****");
+        System.out.println("References same object " + (tCoach == tCoach_v2));
+        System.out.println(tCoach + "\n" + tCoach_v2);
         System.out.println();
 
         //close context
@@ -57,3 +74,4 @@ public class App {
 
     }
 }
+
