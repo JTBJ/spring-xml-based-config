@@ -1,11 +1,9 @@
 package com.spring.xml_based_config;
 
+
 import com.spring.xml_based_config.coach.Coach;
 import com.spring.xml_based_config.coachImpl.CricketCoach;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import java.util.Properties;
 
 public class App {
 

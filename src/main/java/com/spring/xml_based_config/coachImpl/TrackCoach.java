@@ -1,5 +1,6 @@
 package com.spring.xml_based_config.coachImpl;
 
+
 import com.spring.xml_based_config.coach.Coach;
 import com.spring.xml_based_config.dependency.FortuneService;
 
@@ -37,7 +38,7 @@ public class TrackCoach implements Coach {
         System.out.println("Inside spring lifecycle method DESTROY called by the spring container.");
         System.out.println("For \"prototype\" scoped beans, Spring does not call the destroy method.");
         System.out.println("The client code must clean up prototype-scoped objects and release expensive\n" +
-                "resources that the prototype bean(s) are holding. ");
+                "main.java.resources that the prototype bean(s) are holding. ");
         System.out.println();
     }
 

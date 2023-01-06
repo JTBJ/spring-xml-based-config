@@ -1,5 +1,6 @@
 package com.spring.xml_based_config.dependencyImpl;
 
+
 import com.spring.xml_based_config.dependency.FortuneService;
 
 public class HappyFortuneServiceImpl implements FortuneService {
