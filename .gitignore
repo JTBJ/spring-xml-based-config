@@ -1,4 +1,3 @@
-.gitignore
 .idea/**
 spring-project-xml-based-config.iml
 out/**
